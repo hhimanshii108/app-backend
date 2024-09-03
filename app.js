@@ -12,7 +12,11 @@ dotenv.config();
 const mongoUrl = process.env.MONGO_URL;
 const JWT_SECRET = process.env.JWT_SECRET;
 mongoose
-  .connect(mongoUrl)
+  .connect(mongoUrl, {
+    useUnifiedTopology: true,
+
+    useNewUrlParser: true,
+  })
   .then(() => {
     console.log("database connected");
   })
